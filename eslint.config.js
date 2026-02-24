@@ -1,27 +1,66 @@
-import js from "@eslint/js";
+import pluginJs from "@eslint/js";
+import pluginImport from "eslint-plugin-import";
+import pluginReact from "eslint-plugin-react";
 import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
+
 import tseslint from "typescript-eslint";
-import { defineConfig, globalIgnores } from "eslint/config";
 
-export default defineConfig([
-  globalIgnores(["dist"]),
+export default [
   {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
+    ignores: [
+      "node_modules",
+      "dist",
+      "build",
+      ".next",
+      "coverage",
+      "*.config.js",
+      "*.config.ts",
+      "eslint.config.js", // Явно добавляем сам конфиг для надежности
     ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
+  },
+  {
+    files: ["**/*.{js,ts,jsx,tsx}"],
+  },
 
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+
+  {
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      react: pluginReact,
+      import: pluginImport,
+    },
+  },
+
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+
+  {
+    ...pluginReact.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+  },
+
+  {
     rules: {
-      // === TypeScript правила (практичные) ===
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
@@ -45,7 +84,6 @@ export default defineConfig([
         },
       ],
 
-      // Убрал строгие/мешающие правила:
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -60,9 +98,8 @@ export default defineConfig([
       "@typescript-eslint/no-unsafe-return": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
 
-      // === React правила ===
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off", // TypeScript заменяет prop-types
+      "react/prop-types": "off",
       "react/jsx-props-no-spreading": "off",
       "react/require-default-props": "off",
       "react/display-name": "off",
@@ -72,7 +109,6 @@ export default defineConfig([
       "react/jsx-uses-react": "off",
       "react/no-unknown-property": ["error", { ignore: ["css"] }],
 
-      // === Import/Export правила ===
       "import/order": [
         "error",
         {
@@ -106,14 +142,13 @@ export default defineConfig([
         },
       ],
       "import/no-duplicates": "error",
-      "import/no-unresolved": "off", // TypeScript делает это лучше
-      "import/named": "off", // TypeScript делает это лучше
-      "import/namespace": "off", // TypeScript делает это лучше
-      "import/default": "off", // TypeScript делает это лучше
+      "import/no-unresolved": "off",
+      "import/named": "off",
+      "import/namespace": "off",
+      "import/default": "off",
       "import/no-named-as-default": "off",
       "import/no-named-as-default-member": "off",
 
-      // === Общие JavaScript правила ===
       "no-console": ["warn", { allow: ["warn", "error", "info"] }],
       "no-debugger": "warn",
       "no-alert": "warn",
@@ -139,7 +174,6 @@ export default defineConfig([
       "no-var": "error",
       "object-shorthand": "error",
 
-      // === Стилевые правила ===
       quotes: ["error", "single", { avoidEscape: true }],
       semi: ["off", "always"],
       "comma-dangle": ["off", "always-multiline"],
@@ -156,4 +190,11 @@ export default defineConfig([
       ],
     },
   },
-]);
+  //   🔹 Специальные настройки для Vite-конфига
+  {
+    files: ["vite.config.ts"],
+    languageOptions: {
+      sourceType: "module",
+    },
+  },
+];
