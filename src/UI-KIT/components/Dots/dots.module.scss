@@ -1,0 +1,30 @@
+.goalCardProgressDots {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.md {
+  gap: 8px;
+}
+
+.xs {
+  gap: 4px;
+}
+
+.commonDots {
+  background: #101828;
+  opacity: 24%;
+  border-radius: 4px;
+}
+
+.large {
+  composes: commonDots;
+  width: 32px;
+  height: 8px;
+}
+
+.small {
+  composes: commonDots;
+  width: 8px;
+  height: 8px;
+}
