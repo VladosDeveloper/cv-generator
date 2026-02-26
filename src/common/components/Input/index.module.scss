@@ -1,0 +1,73 @@
+@use '@/styles/colors' as *;
+@use '@/styles/fonts' as *;
+
+@mixin commonFocus {
+  border: 1px solid $success-200;
+  box-shadow:
+    0 0 0 4px #d3f8df,
+    0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  outline: none;
+}
+
+@mixin commonPlaceholder {
+  @include regular-14;
+  color: $accent-500;
+}
+
+@mixin commonFont {
+  @include regular-14;
+  color: $accent-800;
+}
+
+.field {
+  & label {
+    display: inline-block;
+    @include medium-14;
+    color: $accent-700;
+    margin-bottom: 6px;
+  }
+}
+
+.input {
+  border: 1px solid $accent-300;
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 264px;
+  height: 40px;
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  background: $white;
+
+  @include commonFont;
+
+  &:focus {
+    @include commonFocus;
+  }
+
+  &::placeholder {
+    @include commonPlaceholder;
+  }
+}
+
+.textarea {
+  border: 1px solid $accent-300;
+  border-radius: 8px;
+  padding: 12px 14px;
+  width: 544px;
+  height: 236px;
+  background: $white;
+  resize: none;
+
+  @include commonFont;
+
+  &:focus {
+    @include commonFocus;
+  }
+
+  &::placeholder {
+    @include commonPlaceholder;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

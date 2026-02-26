@@ -1,0 +1,6 @@
+@use '@/styles/utils' as *;
+
+.container {
+  @include root-container;
+  padding-top: 32px;
+}

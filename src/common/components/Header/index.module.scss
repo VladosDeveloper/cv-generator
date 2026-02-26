@@ -1,0 +1,16 @@
+@use '@/styles/utils' as *;
+
+.header {
+  @include flex-container($justify: space-between);
+  margin-bottom: 32px;
+
+  .logoWrapper {
+    @include flex-container($gap: 13px);
+
+    cursor: pointer;
+  }
+
+  .headerNavigation {
+    @include flex-container($gap: 16px);
+  }
+}

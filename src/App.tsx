@@ -1,9 +1,18 @@
-import { Input } from '@/UI-KIT/components/Input'
-import { PreviewCard } from '@/UI-KIT/components/PreviewCard'
-import { HitGoal } from './UI-KIT/components/HitGoal'
+import { ApplicationsLayout } from '@/common/components/ApplicationsLayout'
+import { Header } from '@/common/components/Header'
+import { HitGoal } from '@/common/components/HitGoal'
+import { Layout } from '@/common/components/Layout'
+import { PageTitle } from '@/common/components/PageTitle'
 
 function App() {
-  return <></>
+  return (
+    <Layout>
+      <Header />
+      <PageTitle />
+      <ApplicationsLayout />
+      <HitGoal />
+    </Layout>
+  )
 }
 
 export default App

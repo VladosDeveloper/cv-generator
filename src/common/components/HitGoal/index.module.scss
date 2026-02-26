@@ -1,0 +1,37 @@
+@use '@/styles/colors' as *;
+@use '@/styles/utils' as *;
+@use '@/styles/fonts' as *;
+
+.goalCard {
+  width: 100%;
+  background: $success-100;
+  border-radius: 12px;
+  padding: 54px 64px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.goalCardContent {
+  @include flex-container($direction: column, $gap: 32px);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.goalCardTrigger {
+  @include flex-container($direction: column, $gap: 16px);
+}
+
+.goalCardTitle {
+  @include h2;
+  color: $accent-800;
+  letter-spacing: -2%;
+}
+
+.secondaryText {
+  @include regular-18;
+  color: $accent-500;
+}
+
+.goalCardProgress {
+  @include flex-container($direction: column, $gap: 8px);
+}

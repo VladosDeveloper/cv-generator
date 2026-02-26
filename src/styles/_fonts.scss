@@ -1,0 +1,73 @@
+@use 'typography' as *;
+
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/fonts/FixelDisplay-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/fonts/FixelDisplay-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/fonts/FixelDisplay-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/fonts/FixelDisplay-Medium.woff2') format('woff2');
+}
+
+@mixin h1 {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-semi-bold;
+  line-height: $line-height-xl;
+}
+
+@mixin h2 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semi-bold;
+  line-height: $line-height-l;
+}
+
+@mixin semi-bold-18 {
+  font-weight: $font-weight-semi-bold;
+  font-size: $font-size-l;
+  line-height: $line-height-m;
+}
+@mixin regular-18 {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-l;
+  line-height: $line-height-m;
+}
+
+@mixin semi-bold-16 {
+  font-weight: $font-weight-semi-bold;
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+}
+
+@mixin medium-14 {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-s;
+  line-height: $line-height-s;
+}
+
+@mixin regular-14 {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-s;
+  line-height: $line-height-s;
+}

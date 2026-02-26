@@ -1,0 +1,16 @@
+@use '@/styles/utils' as *;
+@use '@/styles/fonts' as *;
+@use '@/styles/colors' as *;
+
+.pageTitle {
+  width: 100%;
+  @include flex-container($justify: space-between);
+  border-bottom: 1px solid $accent-200;
+  padding: 0 0 16px;
+  margin-bottom: 24px;
+
+  h1 {
+    @include h1;
+    color: $accent-800;
+  }
+}

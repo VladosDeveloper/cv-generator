@@ -1,0 +1,28 @@
+@use '@/styles/colors' as *;
+@use '@/styles/utils' as *;
+
+@mixin commonDots {
+  background: $accent-800;
+  opacity: 24%;
+  border-radius: 4px;
+}
+
+.goalCardProgressDots {
+  @include flex-container();
+}
+
+.rectangle {
+  @include commonDots;
+  width: 32px;
+  height: 8px;
+}
+
+.circle {
+  @include commonDots;
+  width: 8px;
+  height: 8px;
+}
+
+.fill {
+  opacity: 1;
+}

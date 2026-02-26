@@ -1,0 +1,8 @@
+@use '@/styles/fonts' as *;
+@use '@/styles/colors' as *;
+
+.applicationCounter {
+  @include regular-18;
+  padding-top: 5px;
+  color: $accent-500;
+}
