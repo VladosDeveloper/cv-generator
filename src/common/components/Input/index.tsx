@@ -8,7 +8,6 @@ type InputProps<T extends ElementType> = {
   placeholder: string
   as?: T
   fullWidth?: boolean
-  type?: 'text' | 'password'
 }
 
 export const Input = <T extends ElementType = 'input'>({
@@ -16,7 +15,6 @@ export const Input = <T extends ElementType = 'input'>({
   fullWidth,
   label,
   as,
-  type = 'text',
   placeholder,
 }: InputProps<T>) => {
   const Component = as || 'input'
@@ -26,7 +24,6 @@ export const Input = <T extends ElementType = 'input'>({
       <label htmlFor={label}>{label}</label>
       <br />
       <Component
-        {...(Component === 'input' ? { type } : {})}
         className={cn({
           [styles.input]: Component === 'input',
           [styles.textarea]: Component === 'textarea',

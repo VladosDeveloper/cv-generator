@@ -1,13 +1,11 @@
 import { ApplicationsLayout } from '@/common/components/ApplicationsLayout'
-import { Header } from '@/common/components/Header'
-import { HitGoal } from '@/common/components/HitGoal'
 import { Layout } from '@/common/components/Layout'
-import { PageTitle } from '@/common/components/PageTitle'
+import { HitGoal } from '@/widgets/HitGoal'
+import { PageTitle } from '@/widgets/PageTitle'
 
 function App() {
   return (
     <Layout>
-      <Header />
       <PageTitle />
       <ApplicationsLayout />
       <HitGoal />

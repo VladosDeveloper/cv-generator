@@ -1,4 +1,4 @@
-import { PreviewCard } from '@/common/components/PreviewCard'
+import { PreviewCard } from '@/widgets/PreviewCard'
 import styles from './index.module.scss'
 
 export const ApplicationsLayout = () => {

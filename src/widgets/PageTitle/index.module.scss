@@ -1,8 +1,10 @@
 @use '@/styles/utils' as *;
 @use '@/styles/fonts' as *;
 @use '@/styles/colors' as *;
+@use '@/styles/typography' as *;
 
 .pageTitle {
+  font-family: $second-font-family;
   width: 100%;
   @include flex-container($justify: space-between);
   border-bottom: 1px solid $accent-200;

@@ -1,14 +1,7 @@
 @use 'typography' as *;
 
 @font-face {
-  font-family: Inter;
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url('@/assets/fonts/FixelDisplay-SemiBold.woff2') format('woff2');
-}
-@font-face {
-  font-family: Inter;
+  font-family: 'Fixel Display';
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -16,19 +9,27 @@
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: 'Fixel Text';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/fonts/FixelText-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fixel Text';
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('@/assets/fonts/FixelDisplay-Regular.woff2') format('woff2');
+  src: url('@/assets/fonts/FixelText-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: 'Fixel Text';
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url('@/assets/fonts/FixelDisplay-Medium.woff2') format('woff2');
+  src: url('@/assets/fonts/FixelText-Medium.woff2') format('woff2');
 }
 
 @mixin h1 {

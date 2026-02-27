@@ -29,9 +29,9 @@
 }
 
 .small {
+  font-family: $font-family;
   width: min(151px, 100%);
   padding: 10px 18px;
-
   .buttonText {
     @include semi-bold-16;
     line-height: 0;
