@@ -26,7 +26,6 @@ export const CreateApplicationPage = () => {
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     setData({
       ...data,
-      id: crypto.randomUUID(),
     })
   }
 

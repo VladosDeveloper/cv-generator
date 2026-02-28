@@ -1,7 +1,6 @@
 import { z } from 'zod'
 
 export const zFormFields = z.object({
-  id: z.string().optional(),
   jobTitle: z.string().min(1),
   company: z.string().min(1),
   skills: z.string().min(1),
