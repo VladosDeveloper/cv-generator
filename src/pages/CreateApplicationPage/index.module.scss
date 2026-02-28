@@ -1,0 +1,67 @@
+@use '@/styles/colors' as *;
+@use '@/styles/utils' as *;
+@use '@/styles/fonts' as *;
+@use '@/styles/typography' as *;
+
+.appContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 600px;
+  gap: 32px;
+}
+
+.formSection {
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  gap: 16px;
+
+  .formSectionTitle {
+    font-family: $second-font-family;
+    @include h2;
+
+    color: $accent-800;
+    padding: 0 0 12px;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid $accent-200;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+
+    .text {
+      color: $accent-500;
+    }
+  }
+}
+
+.form {
+  display: grid;
+  grid-auto-rows: 66px 66px 288px 60px;
+  gap: 16px;
+
+  .formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .formCounter {
+    @include regular-14;
+    //line-height: 20px;
+    color: $accent-600;
+  }
+
+  .formCounterError {
+    color: $danger;
+  }
+}
+
+.previewSection {
+}

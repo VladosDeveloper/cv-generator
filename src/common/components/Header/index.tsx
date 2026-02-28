@@ -1,15 +1,21 @@
+import { Link, useNavigate } from 'react-router'
 import Home from '@/assets/icons/home.svg?react'
 import Logomark from '@/assets/icons/logomark.svg?react'
 import Logotype from '@/assets/icons/logotype.svg?react'
 import { ApplicationCounter } from '@/common/components/ApplicationCounter'
 import { Button } from '@/common/components/Button'
 import { Dots } from '@/common/components/Dots'
+import { RoutePaths } from '@/constants/routes.ts'
 import styles from './index.module.scss'
 
 export const Header = () => {
+  const navigate = useNavigate()
+
+  const navigateToHome = () => void navigate(RoutePaths.HOME)
+
   return (
     <header className={styles.header}>
-      <section className={styles.logoWrapper}>
+      <section className={styles.logoWrapper} onClick={navigateToHome}>
         <Logomark fill="currentColor" color="#099250" width={44} height={44} />
         <Logotype />
       </section>
@@ -18,7 +24,7 @@ export const Header = () => {
         <ApplicationCounter />
         <Dots dotsType="circle" fillCount={3} />
 
-        <Button variant="iconic">
+        <Button as={Link} to={RoutePaths.HOME} variant="iconic">
           <Home color="#344054" />
         </Button>
       </nav>

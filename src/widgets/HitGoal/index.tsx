@@ -1,6 +1,8 @@
+import { Link } from 'react-router'
 import PlusIcon from '@/assets/icons/icon-plus.svg?react'
 import { Button } from '@/common/components/Button'
 import { Dots } from '@/common/components/Dots'
+import { RoutePaths } from '@/constants/routes.ts'
 import styles from './index.module.scss'
 
 export const HitGoal = () => {
@@ -14,7 +16,14 @@ export const HitGoal = () => {
             Generate and send out couple more job applications today to get hired faster
           </p>
 
-          <Button mediumButton="large" icon={<PlusIcon height={14} width={14} />} iconPosition="left" gap="md">
+          <Button
+            as={Link}
+            to={RoutePaths.CREATE_NEW_APPLICATION}
+            buttonSize="large"
+            icon={<PlusIcon height={14} width={14} />}
+            iconPosition="left"
+            gap="md"
+          >
             Create new
           </Button>
         </section>

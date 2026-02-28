@@ -4,36 +4,41 @@ import styles from './index.module.scss'
 
 type InputProps<T extends ElementType> = {
   label: string
-  inputValue: string
+  inputValue?: string
   placeholder: string
   as?: T
   fullWidth?: boolean
+  isError?: boolean
 }
 
 export const Input = <T extends ElementType = 'input'>({
-  inputValue,
   fullWidth,
   label,
   as,
   placeholder,
+  isError,
+  ...rest
 }: InputProps<T>) => {
   const Component = as || 'input'
 
+  const fieldsClasses = cn({
+    [styles.field]: true,
+    [styles.disabled]: false,
+    [styles.textareaWrapper]: as === 'textarea',
+  })
+
+  const componentClasses = cn({
+    [styles.input]: Component === 'input',
+    [styles.textarea]: Component === 'textarea',
+    [styles.fullWidth]: fullWidth,
+    [styles.error]: isError,
+  })
+
   return (
-    <div className={cn({ [styles.field]: true, [styles.disabled]: false })}>
+    <div className={fieldsClasses}>
       <label htmlFor={label}>{label}</label>
       <br />
-      <Component
-        className={cn({
-          [styles.input]: Component === 'input',
-          [styles.textarea]: Component === 'textarea',
-          [styles.fullWidth]: fullWidth,
-        })}
-        name={inputValue}
-        id={label}
-        placeholder={placeholder}
-      />
-      {/*{invalid && <p className={styles.error}>{error}</p>}*/}
+      <Component className={componentClasses} id={label} placeholder={placeholder} {...rest} />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 @use '@/styles/colors' as *;
 @use '@/styles/fonts' as *;
+@use '@/styles/utils' as *;
 
 @mixin commonFocus {
   border: 1px solid $success-200;
@@ -16,6 +17,7 @@
 
 @mixin commonFont {
   @include regular-14;
+  line-height: 150%;
   color: $accent-800;
 }
 
@@ -25,6 +27,33 @@
     @include medium-14;
     color: $accent-700;
     margin-bottom: 6px;
+  }
+}
+
+.textareaWrapper {
+  position: relative;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    height: 10px;
+    background: white;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before {
+    top: 29px;
+    border-bottom: 1px solid transparent;
+  }
+
+  &::after {
+    bottom: 5px;
+    border-top: 1px solid transparent;
   }
 }
 
@@ -38,6 +67,10 @@
   background: $white;
 
   @include commonFont;
+
+  vertical-align: middle;
+  align-content: center;
+  line-height: 1;
 
   &:focus {
     @include commonFocus;
@@ -70,4 +103,8 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.error {
+  border: 1px solid $danger;
 }

@@ -38,11 +38,13 @@
 
   &.expanded {
     min-height: 240px;
-    height: 560px;
+    height: 512px;
+    overflow: scroll;
   }
 
   & > p {
     text-align: start;
+    margin-bottom: 33px;
   }
 
   &::after {
@@ -60,10 +62,8 @@
 
 .buttonWrapper {
   @include flex-container($justify: space-between);
-  //display: flex;
-  //align-items: center;
-  //justify-content: space-between;
 
+  height: 24px;
   &.expanded {
     justify-content: flex-end;
   }

@@ -4,7 +4,6 @@
 html {
   scrollbar-gutter: stable;
   box-sizing: border-box;
-  font-size: 100%;
 }
 
 html,
@@ -14,7 +13,7 @@ html,
 
 a,
 a:visited {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
@@ -45,7 +44,6 @@ body {
   padding-bottom: 120px;
 
   font-family: $font-family;
-  line-height: $line-height-m;
 }
 
 svg:not([data-static='true']) [fill]:not([fill='none'], [fill^='url']) {
