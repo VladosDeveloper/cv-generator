@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import cn from 'classnames'
 import { type SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router'
 import Retry from '@/assets/icons/retry.svg?react'
 import { Button } from '@/common/components/Button'
 import { Input } from '@/common/components/Input'
@@ -27,7 +28,7 @@ export const CreateApplicationPage = () => {
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
   })
-
+  const navigate = useNavigate()
   const { saveToLocalStorage, removeFromLocalStorage } = useLocalStorage()
   const { applications } = useApplicationsContext()
   const { width } = useWindowWidth()
@@ -60,7 +61,7 @@ export const CreateApplicationPage = () => {
   }, [])
 
   const handleHardReload = () => {
-    window.location.reload()
+    void navigate(0)
   }
 
   const textareaLength = watch('additionalDetails')?.length
