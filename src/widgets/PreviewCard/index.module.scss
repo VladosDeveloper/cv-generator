@@ -42,6 +42,15 @@
     overflow: scroll;
   }
 
+  .loading {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    animation: spin 1s linear infinite;
+  }
+
   & > p {
     text-align: start;
     margin-bottom: 33px;
@@ -66,5 +75,14 @@
   height: 24px;
   &.expanded {
     justify-content: flex-end;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

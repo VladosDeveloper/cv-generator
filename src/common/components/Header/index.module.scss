@@ -1,4 +1,5 @@
 @use '@/styles/utils' as *;
+@use '@/styles/colors' as *;
 
 .header {
   @include flex-container($justify: space-between);
@@ -12,5 +13,16 @@
 
   .headerNavigation {
     @include flex-container($gap: 16px);
+
+    & > .iconWrapper {
+      @include flex-container();
+      margin-right: 8px;
+      color: $success-500;
+
+      width: 28px;
+      height: 28px;
+      background-color: $success-600;
+      border-radius: 50%;
+    }
   }
 }

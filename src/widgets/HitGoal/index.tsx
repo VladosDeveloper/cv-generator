@@ -2,10 +2,16 @@ import { Link } from 'react-router'
 import PlusIcon from '@/assets/icons/icon-plus.svg?react'
 import { Button } from '@/common/components/Button'
 import { Dots } from '@/common/components/Dots'
+import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
+import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
 import { RoutePaths } from '@/constants/routes.ts'
 import styles from './index.module.scss'
 
 export const HitGoal = () => {
+  const { restoreFromLocalStorage } = useLocalStorage()
+
+  const applicationsList = restoreFromLocalStorage(LocalStorageKeys.APPLICATION_KEY).length
+
   return (
     <section className={styles.goalCard}>
       <div className={styles.goalCardContent}>
@@ -29,8 +35,8 @@ export const HitGoal = () => {
         </section>
 
         <div className={styles.goalCardProgress}>
-          <Dots dotsType="rectangle" />
-          <p className={styles.secondaryText}>0 out of 5</p>
+          <Dots dotsType="rectangle" fillCount={applicationsList} />
+          <p className={styles.secondaryText}>{applicationsList} out of 5</p>
         </div>
       </div>
     </section>
