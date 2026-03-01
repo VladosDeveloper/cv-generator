@@ -7,12 +7,14 @@ import { ApplicationCounter } from '@/common/components/ApplicationCounter'
 import { Button } from '@/common/components/Button'
 import { Dots } from '@/common/components/Dots'
 import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
+import { useWindowWidth } from '@/common/hooks/useWindowWidth.ts'
 import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
 import { RoutePaths } from '@/constants/routes.ts'
 import styles from './index.module.scss'
 
 export const Header = () => {
   const { restoreFromLocalStorage } = useLocalStorage()
+  const { width } = useWindowWidth()
 
   const applicationsListLength = restoreFromLocalStorage(LocalStorageKeys.APPLICATION_KEY).length
 
@@ -28,7 +30,7 @@ export const Header = () => {
       </section>
 
       <nav className={styles.headerNavigation}>
-        <ApplicationCounter />
+        {width > 612 && <ApplicationCounter />}
         {applicationsListLength > 4 ? (
           <span className={styles.iconWrapper}>
             <Success />

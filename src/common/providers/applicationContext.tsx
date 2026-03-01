@@ -26,7 +26,7 @@ export const useApplicationsContext = () => {
   const ctx = useContext(Context)
 
   if (!ctx) {
-    throw new Error('useMyContext должен использоваться внутри MyProvider')
+    throw new Error('useMyContext should use in ContextProvider')
   }
   return ctx
 }

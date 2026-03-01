@@ -7,7 +7,8 @@ import { Button } from '@/common/components/Button'
 import { Input } from '@/common/components/Input'
 import { Loader } from '@/common/components/Loader'
 import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
-import { useApplicationsContext } from '@/common/lib/ctx.tsx'
+import { useWindowWidth } from '@/common/hooks/useWindowWidth.ts'
+import { useApplicationsContext } from '@/common/providers/applicationContext.tsx'
 import { type FormFields, zFormFields } from '@/common/schemas/zFormFields.ts'
 import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
 import { HitGoal } from '@/widgets/HitGoal'
@@ -29,6 +30,9 @@ export const CreateApplicationPage = () => {
 
   const { saveToLocalStorage, removeFromLocalStorage } = useLocalStorage()
   const { applications } = useApplicationsContext()
+  const { width } = useWindowWidth()
+
+  const mobileDeviceWidth = width < 568
 
   const [data, setData] = useState<FormFields>()
   const [isLoading, setIsLoading] = useState(false)
@@ -37,6 +41,7 @@ export const CreateApplicationPage = () => {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsLoading(true)
     removeFromLocalStorage(LocalStorageKeys.APPLICATION_KEY, previousId)
+
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     const modifiedItem: FormFields = { ...data, id: crypto.randomUUID() }
@@ -55,7 +60,7 @@ export const CreateApplicationPage = () => {
   }, [])
 
   const textareaLength = watch('additionalDetails')?.length
-  const jobTitle = watch('jobTitle')
+  const jobTitle = watch('jobTitle')?.trim()
   const company = watch('company')
   const isFieldDirty = jobTitle?.length > 0
   const allowSubmittingForm = !isDirty
@@ -79,6 +84,7 @@ export const CreateApplicationPage = () => {
               <Input
                 label="Job title"
                 placeholder="Product manager"
+                fullWidth={mobileDeviceWidth}
                 isError={!!errors.jobTitle?.message}
                 {...register('jobTitle', {
                   onChange: () => clearErrors('jobTitle'),
@@ -88,6 +94,7 @@ export const CreateApplicationPage = () => {
               <Input
                 label="Company"
                 placeholder="Apple"
+                fullWidth={mobileDeviceWidth}
                 isError={!!errors.company?.message}
                 {...register('company', {
                   onChange: () => clearErrors('company'),
@@ -136,7 +143,7 @@ export const CreateApplicationPage = () => {
         <PreviewCard expanded formData={data} isLoading={isLoading} />
       </div>
 
-      {isSubmitSuccessful && applications && applications.length < 4 && <HitGoal />}
+      {isSubmitSuccessful && applications && applications.length < 5 && <HitGoal />}
     </>
   )
 }

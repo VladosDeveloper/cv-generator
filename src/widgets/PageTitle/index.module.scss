@@ -13,6 +13,13 @@
 
   h1 {
     @include h1;
+    @include fluid-text($min-size: $font-size-xl, $max-size: $font-size-xxl);
     color: $accent-800;
+  }
+}
+
+@media screen and (width < 568px) {
+  .pageTitle {
+    @include flex-container($direction: column);
   }
 }

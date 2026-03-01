@@ -25,6 +25,7 @@
 .goalCardTitle {
   font-family: $second-font-family;
   @include h2;
+  @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
   color: $accent-800;
   letter-spacing: -2%;
 }

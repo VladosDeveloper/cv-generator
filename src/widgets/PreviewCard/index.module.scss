@@ -86,3 +86,13 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (width < 568px) {
+  .previewCardHeading {
+    &.expanded {
+      min-height: 240px;
+      height: 350px;
+      overflow: scroll;
+    }
+  }
+}

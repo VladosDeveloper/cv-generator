@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useApplicationsContext } from '@/common/lib/ctx.tsx'
+import { useApplicationsContext } from '@/common/providers/applicationContext.tsx'
 import type { FormFields } from '@/common/schemas/zFormFields.ts'
 
 export const useLocalStorage = () => {

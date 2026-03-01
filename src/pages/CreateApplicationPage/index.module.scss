@@ -18,6 +18,7 @@
   .formSectionTitle {
     font-family: $second-font-family;
     @include h2;
+    @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
 
     color: $accent-800;
     padding: 0 0 12px;
@@ -31,6 +32,7 @@
 
     .text {
       color: $accent-500;
+      @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
     }
   }
 }
@@ -54,7 +56,6 @@
 
   .formCounter {
     @include regular-14;
-    //line-height: 20px;
     color: $accent-600;
   }
 
@@ -63,5 +64,32 @@
   }
 }
 
-.previewSection {
+@media screen and (width < 1024px) {
+  .appContainer {
+    grid-template-columns: minmax(360px, auto);
+    grid-auto-columns: minmax(360px, auto);
+    grid-template-rows: minmax(360px, auto);
+    height: fit-content;
+
+    gap: 16px;
+    place-items: center;
+  }
+}
+@media screen and (width < 568px) {
+  .formSection {
+    grid-template-columns: 1fr;
+    min-width: 360px;
+    width: 100%;
+  }
+
+  .form {
+    grid-template-columns: minmax(360px, auto);
+    grid-template-rows: 140px 66px 288px 60px;
+
+    .formRow {
+      grid-template-columns: minmax(360px, auto);
+      grid-template-rows: 60px 60px;
+      gap: 16px;
+    }
+  }
 }
