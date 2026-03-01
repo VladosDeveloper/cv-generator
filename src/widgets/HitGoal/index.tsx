@@ -7,7 +7,11 @@ import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
 import { RoutePaths } from '@/constants/routes.ts'
 import styles from './index.module.scss'
 
-export const HitGoal = () => {
+type Props = {
+  resetFunction?: () => void
+}
+
+export const HitGoal = ({ resetFunction }: Props) => {
   const { restoreFromLocalStorage } = useLocalStorage()
 
   const applicationsList = restoreFromLocalStorage(LocalStorageKeys.APPLICATION_KEY).length
@@ -29,6 +33,7 @@ export const HitGoal = () => {
             icon={<PlusIcon height={14} width={14} />}
             iconPosition="left"
             gap="md"
+            onClick={resetFunction}
           >
             Create new
           </Button>

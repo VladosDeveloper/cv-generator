@@ -20,6 +20,6 @@
 
 @media screen and (width < 568px) {
   .pageTitle {
-    @include flex-container($direction: column);
+    @include flex-container($direction: column, $gap: 10px);
   }
 }

@@ -59,6 +59,10 @@ export const CreateApplicationPage = () => {
     return () => setPreviousId('')
   }, [])
 
+  const handleHardReload = () => {
+    window.location.reload()
+  }
+
   const textareaLength = watch('additionalDetails')?.length
   const jobTitle = watch('jobTitle')?.trim()
   const company = watch('company')
@@ -143,7 +147,7 @@ export const CreateApplicationPage = () => {
         <PreviewCard expanded formData={data} isLoading={isLoading} />
       </div>
 
-      {isSubmitSuccessful && applications && applications.length < 5 && <HitGoal />}
+      {isSubmitSuccessful && applications && applications.length < 5 && <HitGoal resetFunction={handleHardReload} />}
     </>
   )
 }
