@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router'
 import Retry from '@/assets/icons/retry.svg?react'
 import { Button } from '@/common/components/Button'
 import { Input } from '@/common/components/Input'
-import { Loader } from '@/common/components/Loader'
 import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
 import { useWindowWidth } from '@/common/hooks/useWindowWidth.ts'
 import { useApplicationsContext } from '@/common/providers/applicationContext.tsx'
@@ -41,14 +40,14 @@ export const CreateApplicationPage = () => {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsLoading(true)
-    removeFromLocalStorage(LocalStorageKeys.APPLICATION_KEY, previousId)
+    removeFromLocalStorage(LocalStorageKeys.ApplicationKey, previousId)
 
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     const modifiedItem: FormFields = { ...data, id: crypto.randomUUID() }
 
     setPreviousId(modifiedItem.id!)
-    saveToLocalStorage(LocalStorageKeys.APPLICATION_KEY, modifiedItem)
+    saveToLocalStorage(LocalStorageKeys.ApplicationKey, modifiedItem)
 
     setData({
       ...modifiedItem,
@@ -119,7 +118,7 @@ export const CreateApplicationPage = () => {
 
             <div className={styles.formGroup}>
               <Input
-                isError={!!errors.additionalDetails?.message}
+                isError={!!errors.additionalDetails?.message || formCounterErrorLength}
                 label="Additional details"
                 placeholder="Describe why you are a great fit or paste your bio"
                 as={'textarea'}
@@ -138,9 +137,10 @@ export const CreateApplicationPage = () => {
               icon={isSubmitSuccessful && !isLoading && <Retry />}
               iconPosition="left"
               fullWidth
+              loading={isLoading}
               disabled={allowSubmittingForm || formCounterErrorLength}
             >
-              {isLoading ? <Loader /> : isSubmitSuccessful ? 'Try again' : 'Generate Now'}
+              {isSubmitSuccessful ? 'Try again' : 'Generate Now'}
             </Button>
           </form>
         </div>

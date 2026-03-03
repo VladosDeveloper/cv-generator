@@ -14,7 +14,7 @@ type Props = {
 export const HitGoal = ({ resetFunction }: Props) => {
   const { restoreFromLocalStorage } = useLocalStorage()
 
-  const applicationsList = restoreFromLocalStorage(LocalStorageKeys.APPLICATION_KEY).length
+  const applicationsList = restoreFromLocalStorage(LocalStorageKeys.ApplicationKey).length
 
   return (
     <section className={styles.goalCard}>
@@ -28,7 +28,7 @@ export const HitGoal = ({ resetFunction }: Props) => {
 
           <Button
             as={Link}
-            to={RoutePaths.CREATE_NEW_APPLICATION}
+            to={RoutePaths.CreateNewApplication}
             buttonSize="large"
             icon={<PlusIcon height={14} width={14} />}
             iconPosition="left"

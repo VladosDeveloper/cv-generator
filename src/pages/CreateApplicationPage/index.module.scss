@@ -74,6 +74,12 @@
     gap: 16px;
     place-items: center;
   }
+
+  .form {
+    .formGroup {
+      gap: 0;
+    }
+  }
 }
 @media screen and (width < 568px) {
   .formSection {

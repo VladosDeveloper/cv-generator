@@ -20,7 +20,7 @@ export const ActionButtons = ({ expanded, itemId, copyToClipboardHandler }: Prop
     if (!itemId) {
       return
     }
-    removeFromLocalStorage(LocalStorageKeys.APPLICATION_KEY, itemId)
+    removeFromLocalStorage(LocalStorageKeys.ApplicationKey, itemId)
   }
 
   return (

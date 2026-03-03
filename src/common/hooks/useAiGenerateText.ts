@@ -6,31 +6,30 @@ export const useAiGenerateText = () => {
   const [generatedText, setGeneratedText] = useState('')
 
   const openai = new OpenAI({
-    apiKey: 'key', // НЕБЕЗОПАСНО ДЛЯ ПРОДАКШЕНА
-    dangerouslyAllowBrowser: true, // Это разрешает использовать ключ в браузере
+    apiKey: 'key',
+    dangerouslyAllowBrowser: true,
   })
 
   const generatePrompt = (data: FormFields) => {
-    return `Ты — профессиональный копирайтер. Создай короткий текст для CV.
+    return `You are a professional copywriter. Create a short text for a CV.
 
-    Информация о человеке:
-    - Job title: ${data.jobTitle}
-    - Company name: ${data.company}
-    - Skills: ${data.skills}
-    - Additional details: ${data.additionalDetails}
+  Information about the person:
+  - Job title: ${data.jobTitle}
+  - Company name: ${data.company}
+  - Skills: ${data.skills}
+  - Additional details: ${data.additionalDetails}
 
-    Текст должен быть на английском языке, состоять из 5-10 предложений. Так же каждый абзац оберни в тег <p>`
+  The text should be in English, consist of 5-10 sentences. Also wrap each paragraph in a <p> tag.`
   }
 
   const handleGenerate = async (formData: FormFields) => {
     const prompt = generatePrompt(formData)
 
     try {
-      // Используем хук useAIAgent для генерации
       const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo', // Экономичная модель
+        model: 'gpt-3.5-turbo',
         messages: [
-          { role: 'system', content: 'Ты профессиональный копирайтер.' },
+          { role: 'system', content: 'You are a professional copywriter.' },
           { role: 'user', content: prompt },
         ],
         max_completion_tokens: 150,
@@ -39,8 +38,8 @@ export const useAiGenerateText = () => {
 
       setGeneratedText(response.choices[0].message.content!)
     } catch (error) {
-      console.error('Ошибка при генерации:', error)
-      setGeneratedText('Произошла ошибка. Попробуйте еще раз.')
+      console.error('Error during generation:', error)
+      setGeneratedText('An error occurred. Please try again.')
     }
   }
 

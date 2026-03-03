@@ -6,19 +6,19 @@ import { HomePage } from '@/pages/HomePage'
 
 export const router = createBrowserRouter([
   {
-    path: RoutePaths.HOME,
+    path: RoutePaths.Home,
     Component: Layout,
     children: [
       {
-        path: RoutePaths.HOME,
+        path: RoutePaths.Home,
         Component: HomePage,
       },
       {
-        path: RoutePaths.CREATE_NEW_APPLICATION,
+        path: RoutePaths.CreateNewApplication,
         Component: CreateApplicationPage,
       },
     ],
 
-    errorElement: <Navigate to={RoutePaths.HOME} replace />,
+    errorElement: <Navigate to={RoutePaths.Home} replace />,
   },
 ])

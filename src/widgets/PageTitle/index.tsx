@@ -10,7 +10,7 @@ export const PageTitle = () => {
       <h1>Applications</h1>
       <Button
         as={Link}
-        to={RoutePaths.CREATE_NEW_APPLICATION}
+        to={RoutePaths.CreateNewApplication}
         buttonSize="small"
         icon={<PlusIcon height={11} width={11} />}
         iconPosition="left"

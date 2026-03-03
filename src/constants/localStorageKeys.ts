@@ -1,3 +1,3 @@
 export const LocalStorageKeys = {
-  APPLICATION_KEY: 'applications',
+  ApplicationKey: 'applications',
 }

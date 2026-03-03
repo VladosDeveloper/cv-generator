@@ -25,9 +25,7 @@
     ]
   },
   "dependencies": {
-    "@ai-sdk/openai": "^3.0.37",
     "@hookform/resolvers": "^5.2.2",
-    "ai": "^6.0.105",
     "classnames": "^2.5.1",
     "openai": "^6.25.0",
     "react": "^19.2.0",
@@ -35,10 +33,10 @@
     "react-hook-form": "^7.71.2",
     "react-router": "^7.13.1",
     "sass": "^1.97.3",
-    "vite-plugin-svgr": "^4.5.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "vite-plugin-svgr": "^4.5.0",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",

@@ -8,7 +8,8 @@ import {
 } from 'react'
 import cn from 'classnames'
 
-import styles from './button.module.scss'
+import { Loader } from '@/common/components/Loader'
+import styles from './index.module.scss'
 
 type buttonVariants = 'primary' | 'transparent' | 'iconic'
 
@@ -61,6 +62,7 @@ export const Button = <T extends ElementType = 'button'>({
       {showIcon && iconPosition === 'left' && <span className={styles.iconPosition}>{renderIcon()}</span>}
 
       <span className={styles.buttonText}>{children}</span>
+      {loading && <Loader />}
 
       {showIcon && iconPosition === 'right' && <span className={styles.iconPosition}>{renderIcon()}</span>}
     </Component>

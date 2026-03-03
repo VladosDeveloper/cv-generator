@@ -10,7 +10,7 @@ export const ApplicationsLayout = () => {
   const { initializeFromLocalStorage } = useLocalStorage()
 
   useEffect(() => {
-    initializeFromLocalStorage(LocalStorageKeys.APPLICATION_KEY)
+    initializeFromLocalStorage(LocalStorageKeys.ApplicationKey)
   }, [])
 
   return (

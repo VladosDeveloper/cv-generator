@@ -72,6 +72,10 @@
 .buttonWrapper {
   @include flex-container($justify: space-between);
 
+  &:last-child {
+    padding-inline: 0;
+  }
+
   height: 24px;
   &.expanded {
     justify-content: flex-end;
