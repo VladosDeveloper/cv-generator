@@ -1,3 +1,2 @@
 pnpm lint-staged
-pnpm f stylecheck
 pnpm types
