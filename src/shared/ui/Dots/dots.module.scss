@@ -2,7 +2,7 @@
 @use '@/app/styles/utils' as *;
 
 @mixin commonDots {
-  background: $accent-800;
+  background: $color-gray-200;
   opacity: 24%;
   border-radius: 4px;
 }

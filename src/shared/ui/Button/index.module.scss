@@ -9,7 +9,7 @@
   border-radius: 6px;
   cursor: pointer;
   border: none;
-  color: $white;
+  color: $color-white;
   transition:
     background 0.2s ease,
     transform 0.1s ease;
@@ -29,6 +29,10 @@
   .buttonText {
     @include semi-bold-18;
   }
+
+  &[data-button='submitting-button'] {
+    height: 60px;
+  }
 }
 
 .small {
@@ -42,7 +46,7 @@
 }
 
 .primary {
-  background: $success-300;
+  background: $color-green-150;
 
   &:hover {
     background: #14532d;
@@ -57,11 +61,11 @@
 .disabled {
   pointer-events: none;
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
-  background: $accent-300;
+  background: $color-gray-75;
 
   @include semi-bold-18;
   line-height: 156%;
-  color: $accent-400;
+  color: $color-gray-100;
 }
 
 .transparent {
@@ -69,7 +73,7 @@
   background-color: transparent;
   border: none;
   @include semi-bold-16;
-  color: $accent-600;
+  color: $color-gray-150;
   padding: 0;
   .buttonText {
     transform: translateY(2px);
@@ -80,14 +84,14 @@
 }
 
 .iconic {
-  border: 1px solid $accent-300;
+  border: 1px solid $color-gray-75;
   padding: 10px;
   width: 40px;
   height: 40px;
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
-  background: $white;
+  background: $color-white;
   line-height: 0;
-  color: $accent-700;
+  color: $color-gray-175;
 }
 
 .sm {

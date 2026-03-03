@@ -3,8 +3,7 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 
 type InputProps<T extends ElementType> = {
-  label: string
-  inputValue?: string
+  label?: string
   placeholder: string
   as?: T
   fullWidth?: boolean
@@ -36,9 +35,9 @@ export const Input = <T extends ElementType = 'input'>({
 
   return (
     <div className={fieldsClasses}>
-      <label htmlFor={label}>{label}</label>
+      {label && <label htmlFor={label}>{label}</label>}
       <br />
-      <Component className={componentClasses} id={label} placeholder={placeholder} {...rest} />
+      <Component className={componentClasses} id={label ?? ''} placeholder={placeholder} {...rest} />
     </div>
   )
 }

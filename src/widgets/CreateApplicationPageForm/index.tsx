@@ -3,6 +3,8 @@ import cn from 'classnames'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import styles from '@/pages/CreateApplicationPage/index.module.scss'
 import Retry from '@/shared/assets/icons/retry.svg?react'
+import { ApplicationsDefaultCount } from '@/shared/constants/applicationsDefaultCount.ts'
+import { DevicesWidth } from '@/shared/constants/devicesWidth.ts'
 import { useWindowWidth } from '@/shared/lib/windowWidth'
 import { type FormFields, zFormFields } from '@/shared/types/zFormFields.ts'
 import { Button } from '@/shared/ui/Button'
@@ -27,10 +29,10 @@ export const CreateApplicationPageForm = ({ onSubmit, isLoading }: Props) => {
   })
   const { width } = useWindowWidth()
 
-  const mobileDeviceWidth = width < 568
+  const mobileDeviceWidth = width < DevicesWidth.MobileWidth
 
-  const textareaLength = watch('additionalDetails')?.length
-  const formCounterErrorLength = textareaLength > 1200
+  const textareaLength = watch('additionalDetails')?.length ?? 0
+  const formCounterErrorLength = textareaLength > ApplicationsDefaultCount.TextAreaMaxLettersCount
 
   const formCounterClasses = cn({
     [styles.formCounter]: true,
@@ -86,7 +88,7 @@ export const CreateApplicationPageForm = ({ onSubmit, isLoading }: Props) => {
 
       <Button
         variant={isSubmitSuccessful ? 'iconic' : 'primary'}
-        style={{ height: '60px' }}
+        data-button="submitting-button"
         buttonSize="large"
         gap="md"
         icon={isSubmitSuccessful && !isLoading && <Retry />}

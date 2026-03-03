@@ -5,6 +5,7 @@ import Logomark from '@/shared/assets/icons/logomark.svg?react'
 import Logotype from '@/shared/assets/icons/logotype.svg?react'
 import Success from '@/shared/assets/icons/success.svg?react'
 import { ApplicationsDefaultCount } from '@/shared/constants/applicationsDefaultCount.ts'
+import { DevicesWidth } from '@/shared/constants/devicesWidth.ts'
 import { RoutePaths } from '@/shared/constants/routes.ts'
 import { useWindowWidth } from '@/shared/lib/windowWidth'
 import { ApplicationCounter } from '@/shared/ui/ApplicationCounter'
@@ -31,7 +32,7 @@ export const Header = () => {
       </section>
 
       <nav className={styles.headerNavigation} role="navigation">
-        {width > 612 && <ApplicationCounter />}
+        {width > DevicesWidth.MobileWidth && <ApplicationCounter />}
         {applicationsListLength && applicationsListLength > ApplicationsDefaultCount.ApplicationsMaxCount ? (
           <span className={styles.iconWrapper}>
             <Success />

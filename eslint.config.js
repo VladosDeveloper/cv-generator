@@ -11,16 +11,7 @@ export default [
   },
 
   {
-    ignores: [
-      'node_modules',
-      'dist',
-      'build',
-      '.next',
-      'coverage',
-      '*.config.js',
-      '*.config.ts',
-      'eslint.config.js', // Явно добавляем сам конфиг для надежности
-    ],
+    ignores: ['node_modules', 'dist', 'build', '.next', 'coverage', '*.config.js', '*.config.ts'],
   },
 
   pluginJs.configs.recommended,

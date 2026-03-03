@@ -1,5 +1,6 @@
 import { Activity } from 'react'
 import { useApplicationsContext } from '@/app/providers'
+import { ApplicationsDefaultCount } from '@/shared/constants/applicationsDefaultCount.ts'
 import { ApplicationsLayout } from '@/shared/ui/ApplicationsLayout'
 import { HitGoal } from '@/widgets/HitGoal'
 import { PageTitle } from '@/widgets/PageTitle'
@@ -12,7 +13,11 @@ export const HomePage = () => {
       <PageTitle />
       <ApplicationsLayout />
 
-      <Activity mode={applications && applications.length > 4 ? 'hidden' : 'visible'}>
+      <Activity
+        mode={
+          applications && applications.length > ApplicationsDefaultCount.ApplicationsMaxCount ? 'hidden' : 'visible'
+        }
+      >
         <HitGoal />
       </Activity>
     </>

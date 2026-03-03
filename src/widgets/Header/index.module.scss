@@ -17,11 +17,11 @@
     & > .iconWrapper {
       @include flex-container();
       margin-right: 8px;
-      color: $success-500;
+      color: $color-green-100;
 
       width: 28px;
       height: 28px;
-      background-color: $success-600;
+      background-color: $color-green-50;
       border-radius: 50%;
     }
   }

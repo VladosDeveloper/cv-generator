@@ -20,10 +20,10 @@
     @include h2;
     @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
 
-    color: $accent-800;
+    color: $color-gray-200;
     padding: 0 0 12px;
     letter-spacing: -0.02em;
-    border-bottom: 1px solid $accent-200;
+    border-bottom: 1px solid $color-gray-50;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -31,7 +31,7 @@
     min-width: 0;
 
     .text {
-      color: $accent-500;
+      color: $color-gray-125;
       @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
     }
   }
@@ -56,11 +56,11 @@
 
   .formCounter {
     @include regular-14;
-    color: $accent-600;
+    color: $color-gray-150;
   }
 
   .formCounterError {
-    color: $danger;
+    color: $color-red-50;
   }
 }
 
