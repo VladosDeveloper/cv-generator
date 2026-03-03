@@ -16,7 +16,7 @@ Cover letter generator that helps job seekers create personalized, professional 
 
 ## 🛠 Tech Stack
 
-- **Frontend:** React 18, TypeScript, React Router DOM 7
+- **Frontend:** React 19, TypeScript, React Router DOM 7
 - **Build Tool:** Vite
 - **Styling:** SCSS Modules
 - **Linting/Formatting:** ESLint, Prettier, Stylelint, husky, lint-staged
