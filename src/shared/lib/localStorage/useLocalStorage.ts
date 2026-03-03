@@ -1,10 +1,7 @@
 import { useCallback } from 'react'
-import { useApplicationsContext } from '@/app/providers'
 import type { FormFields } from '@/shared/types/zFormFields.ts'
 
 export const useLocalStorage = () => {
-  const { setApplications } = useApplicationsContext()
-
   const restoreFromLocalStorage = useCallback((key: string) => {
     try {
       const stateAsString = localStorage.getItem(key)
@@ -24,15 +21,13 @@ export const useLocalStorage = () => {
 
         localStorage.setItem(key, JSON.stringify(updatedItems))
 
-        setApplications(updatedItems)
-
         return updatedItems
       } catch (error) {
         console.error('Error saving to localStorage:', error)
         return []
       }
     },
-    [restoreFromLocalStorage, setApplications]
+    [restoreFromLocalStorage]
   )
 
   const removeFromLocalStorage = useCallback(
@@ -44,26 +39,24 @@ export const useLocalStorage = () => {
 
         localStorage.setItem(key, JSON.stringify(filteredItems))
 
-        setApplications(filteredItems)
-
         return filteredItems
       } catch (error) {
         console.error('Error removing from localStorage:', error)
         return []
       }
     },
-    [restoreFromLocalStorage, setApplications]
+    [restoreFromLocalStorage]
   )
 
   const initializeFromLocalStorage = useCallback(
     (key: string) => {
       const items = restoreFromLocalStorage(key)
       if (items.length > 0) {
-        setApplications(items)
+        return items
       }
-      return items
+      return []
     },
-    [restoreFromLocalStorage, setApplications]
+    [restoreFromLocalStorage]
   )
 
   return {

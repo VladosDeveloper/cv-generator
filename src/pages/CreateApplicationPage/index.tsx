@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import cn from 'classnames'
 import { type SubmitHandler, useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router'
 import { useApplicationsContext } from '@/app/providers'
 import Retry from '@/shared/assets/icons/retry.svg?react'
 import { LocalStorageKeys } from '@/shared/constants/localStorageKeys.ts'
@@ -20,6 +19,7 @@ export const CreateApplicationPage = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isDirty, isSubmitSuccessful },
     clearErrors,
   } = useForm<FormFields>({
@@ -27,9 +27,8 @@ export const CreateApplicationPage = () => {
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
   })
-  const navigate = useNavigate()
   const { saveToLocalStorage, removeFromLocalStorage } = useLocalStorage()
-  const { applications } = useApplicationsContext()
+  const { applications, setApplications } = useApplicationsContext()
   const { width } = useWindowWidth()
 
   const mobileDeviceWidth = width < 568
@@ -40,14 +39,17 @@ export const CreateApplicationPage = () => {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsLoading(true)
-    removeFromLocalStorage(LocalStorageKeys.ApplicationKey, previousId)
+
+    const filteredItems = removeFromLocalStorage(LocalStorageKeys.ApplicationKey, previousId)
+    setApplications(filteredItems)
 
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     const modifiedItem: FormFields = { ...data, id: crypto.randomUUID() }
 
     setPreviousId(modifiedItem.id!)
-    saveToLocalStorage(LocalStorageKeys.ApplicationKey, modifiedItem)
+    const updatedListItems = saveToLocalStorage(LocalStorageKeys.ApplicationKey, modifiedItem)
+    setApplications(updatedListItems)
 
     setData({
       ...modifiedItem,
@@ -55,12 +57,9 @@ export const CreateApplicationPage = () => {
     setIsLoading(false)
   }
 
-  useEffect(() => {
-    return () => setPreviousId('')
-  }, [])
-
-  const handleHardReload = () => {
-    void navigate(0)
+  const resetFormHandler = () => {
+    setPreviousId('')
+    reset()
   }
 
   const textareaLength = watch('additionalDetails')?.length
@@ -148,7 +147,7 @@ export const CreateApplicationPage = () => {
         <PreviewCard expanded formData={data} isLoading={isLoading} />
       </div>
 
-      {isSubmitSuccessful && applications && applications.length < 5 && <HitGoal resetFunction={handleHardReload} />}
+      {isSubmitSuccessful && applications && applications.length < 5 && <HitGoal resetFunction={resetFormHandler} />}
     </>
   )
 }

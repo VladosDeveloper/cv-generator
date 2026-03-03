@@ -1,5 +1,6 @@
 import { Activity } from 'react'
 import cn from 'classnames'
+import { useApplicationsContext } from '@/app/providers'
 import Copy from '@/shared/assets/icons/copy.svg?react'
 import Delete from '@/shared/assets/icons/delete.svg?react'
 import { LocalStorageKeys } from '@/shared/constants/localStorageKeys.ts'
@@ -14,13 +15,15 @@ type Props = {
 }
 
 export const ActionButtons = ({ expanded, itemId, copyToClipboardHandler }: Props) => {
+  const { setApplications } = useApplicationsContext()
   const { removeFromLocalStorage } = useLocalStorage()
 
   const removeItemHandler = () => {
     if (!itemId) {
       return
     }
-    removeFromLocalStorage(LocalStorageKeys.ApplicationKey, itemId)
+    const filteredItems = removeFromLocalStorage(LocalStorageKeys.ApplicationKey, itemId)
+    setApplications(filteredItems)
   }
 
   return (

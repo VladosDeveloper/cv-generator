@@ -6,11 +6,12 @@ import { PreviewCard } from '@/widgets/PreviewCard'
 import styles from './index.module.scss'
 
 export const ApplicationsLayout = () => {
-  const { applications } = useApplicationsContext()
+  const { applications, setApplications } = useApplicationsContext()
   const { initializeFromLocalStorage } = useLocalStorage()
 
   useEffect(() => {
-    initializeFromLocalStorage(LocalStorageKeys.ApplicationKey)
+    const items = initializeFromLocalStorage(LocalStorageKeys.ApplicationKey)
+    setApplications(items)
   }, [])
 
   return (

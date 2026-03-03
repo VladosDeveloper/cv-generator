@@ -1,12 +1,11 @@
 import { Link, useNavigate } from 'react-router'
+import { useApplicationsContext } from '@/app/providers'
 import Home from '@/shared/assets/icons/home.svg?react'
 import Logomark from '@/shared/assets/icons/logomark.svg?react'
 import Logotype from '@/shared/assets/icons/logotype.svg?react'
 import Success from '@/shared/assets/icons/success.svg?react'
 import { ApplicationsDefaultCount } from '@/shared/constants/applicationsDefaultCount.ts'
-import { LocalStorageKeys } from '@/shared/constants/localStorageKeys.ts'
 import { RoutePaths } from '@/shared/constants/routes.ts'
-import { useLocalStorage } from '@/shared/lib/localStorage'
 import { useWindowWidth } from '@/shared/lib/windowWidth'
 import { ApplicationCounter } from '@/shared/ui/ApplicationCounter'
 import { Button } from '@/shared/ui/Button'
@@ -15,10 +14,10 @@ import { Toaster } from '@/shared/ui/Toaster'
 import styles from './index.module.scss'
 
 export const Header = () => {
-  const { restoreFromLocalStorage } = useLocalStorage()
+  const { applications } = useApplicationsContext()
   const { width } = useWindowWidth()
 
-  const applicationsListLength = restoreFromLocalStorage(LocalStorageKeys.ApplicationKey).length
+  const applicationsListLength = applications?.length
 
   const navigate = useNavigate()
 
@@ -33,7 +32,7 @@ export const Header = () => {
 
       <nav className={styles.headerNavigation} role="navigation">
         {width > 612 && <ApplicationCounter />}
-        {applicationsListLength > ApplicationsDefaultCount.ApplicationsMaxCount ? (
+        {applicationsListLength && applicationsListLength > ApplicationsDefaultCount.ApplicationsMaxCount ? (
           <span className={styles.iconWrapper}>
             <Success />
           </span>
