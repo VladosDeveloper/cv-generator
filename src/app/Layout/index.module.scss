@@ -1,0 +1,12 @@
+@use '@/app/styles/utils' as *;
+
+.container {
+  @include root-container;
+  padding-top: 32px;
+}
+
+@media screen and (width < 768px) {
+  .container {
+    padding-inline: 10px;
+  }
+}

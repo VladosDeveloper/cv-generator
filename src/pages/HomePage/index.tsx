@@ -1,6 +1,6 @@
 import { Activity } from 'react'
-import { ApplicationsLayout } from '@/common/components/ApplicationsLayout'
-import { useApplicationsContext } from '@/common/providers/applicationContext.tsx'
+import { useApplicationsContext } from '@/app/providers'
+import { ApplicationsLayout } from '@/shared/ui/ApplicationsLayout'
 import { HitGoal } from '@/widgets/HitGoal'
 import { PageTitle } from '@/widgets/PageTitle'
 

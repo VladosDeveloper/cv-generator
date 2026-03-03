@@ -1,0 +1,28 @@
+@use '@/app/styles/utils' as *;
+@use '@/app/styles/colors' as *;
+
+.header {
+  @include flex-container($justify: space-between);
+  margin-bottom: 32px;
+
+  .logoWrapper {
+    @include flex-container($gap: 13px);
+
+    cursor: pointer;
+  }
+
+  .headerNavigation {
+    @include flex-container($gap: 16px);
+
+    & > .iconWrapper {
+      @include flex-container();
+      margin-right: 8px;
+      color: $success-500;
+
+      width: 28px;
+      height: 28px;
+      background-color: $success-600;
+      border-radius: 50%;
+    }
+  }
+}

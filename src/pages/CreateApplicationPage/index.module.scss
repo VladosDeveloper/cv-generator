@@ -1,7 +1,7 @@
-@use '@/styles/colors' as *;
-@use '@/styles/utils' as *;
-@use '@/styles/fonts' as *;
-@use '@/styles/typography' as *;
+@use '@/app/styles/colors' as *;
+@use '@/app/styles/utils' as *;
+@use '@/app/styles/fonts' as *;
+@use '@/app/styles/typography' as *;
 
 .appContainer {
   display: grid;

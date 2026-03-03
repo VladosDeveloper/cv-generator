@@ -1,10 +1,10 @@
 import { Activity } from 'react'
 import cn from 'classnames'
-import Copy from '@/assets/icons/copy.svg?react'
-import Delete from '@/assets/icons/delete.svg?react'
-import { Button } from '@/common/components/Button'
-import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
-import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
+import Copy from '@/shared/assets/icons/copy.svg?react'
+import Delete from '@/shared/assets/icons/delete.svg?react'
+import { LocalStorageKeys } from '@/shared/constants/localStorageKeys.ts'
+import { useLocalStorage } from '@/shared/lib/localStorage'
+import { Button } from '@/shared/ui/Button'
 import styles from '../index.module.scss'
 
 type Props = {

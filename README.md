@@ -31,6 +31,39 @@ Before you begin, ensure you have the following installed:
 - **pnpm** (v8 or higher)
 
 Check your versions:
+
 ```bash
 node --version
 pnpm --version
+
+## 📁 Project Structure
+
+cover-letter-generator/
+├── .husky/                    # Git hooks
+│   └── pre-commit            # Pre-commit hook
+├── .lintstagedrc.yml         # Lint-staged configuration
+├── .prettierrc.yml           # Prettier config
+├── eslint.config.js          # ESLint configuration
+├── stylelint.config.js       # Stylelint config
+├── index.html                # HTML template
+├── package.json              # Dependencies and scripts
+├── pnpm-lock.yaml            # Lockfile
+├── tsconfig*.json            # TypeScript configs
+├── vite.config.ts            # Vite configuration
+├── vercel.json               # Vercel deployment config
+├── public/                   # Static assets
+├── src/
+│   ├── main.tsx             # App entry point
+│   ├── app/                  # Application core
+│   │   ├── Layout/           # Main layout wrapper
+│   │   ├── providers/        # Context providers
+│   │   ├── router/           # Routing configuration
+│   │   └── styles/           # Global styles
+│   ├── pages/                 # Page components
+│   ├── widgets/               # Complex UI blocks
+│   └── shared/                 # Reusable code
+│       ├── assets/             # Static resources
+│       ├── constants/          # App constants
+│       ├── lib/                # Utilities
+│       ├── types/              # TypeScript types
+└──         └── ui/                 # UI components

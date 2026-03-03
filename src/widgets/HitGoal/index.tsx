@@ -1,10 +1,10 @@
 import { Link } from 'react-router'
-import PlusIcon from '@/assets/icons/icon-plus.svg?react'
-import { Button } from '@/common/components/Button'
-import { Dots } from '@/common/components/Dots'
-import { useLocalStorage } from '@/common/hooks/useLocalStorage.ts'
-import { LocalStorageKeys } from '@/constants/localStorageKeys.ts'
-import { RoutePaths } from '@/constants/routes.ts'
+import PlusIcon from '@/shared/assets/icons/icon-plus.svg?react'
+import { LocalStorageKeys } from '@/shared/constants/localStorageKeys.ts'
+import { RoutePaths } from '@/shared/constants/routes.ts'
+import { useLocalStorage } from '@/shared/lib/localStorage'
+import { Button } from '@/shared/ui/Button'
+import { Dots } from '@/shared/ui/Dots'
 import styles from './index.module.scss'
 
 type Props = {

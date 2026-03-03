@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
-import PlusIcon from '@/assets/icons/icon-plus.svg?react'
-import { Button } from '@/common/components/Button'
-import { RoutePaths } from '@/constants/routes.ts'
+import PlusIcon from '@/shared/assets/icons/icon-plus.svg?react'
+import { RoutePaths } from '@/shared/constants/routes.ts'
+import { Button } from '@/shared/ui/Button'
 import styles from './index.module.scss'
 
 export const PageTitle = () => {

@@ -1,4 +1,4 @@
-import type { FormFields } from '@/common/schemas/zFormFields.ts'
+import type { FormFields } from '@/shared/types/zFormFields.ts'
 
 type Props = {
   formData: FormFields
