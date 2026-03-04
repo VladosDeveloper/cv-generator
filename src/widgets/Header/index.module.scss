@@ -15,7 +15,7 @@
     @include flex-container($gap: 16px);
 
     & > .iconWrapper {
-      @include flex-container();
+      @include flex-container;
       margin-right: 8px;
       color: $color-green-100;
 

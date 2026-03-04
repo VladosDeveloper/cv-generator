@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook'
+
 import pluginJs from '@eslint/js'
 import pluginImport from 'eslint-plugin-import'
 import pluginReact from 'eslint-plugin-react'
@@ -9,14 +12,11 @@ export default [
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
   },
-
   {
     ignores: ['node_modules', 'dist', 'build', '.next', 'coverage', '*.config.js', '*.config.ts'],
   },
-
   pluginJs.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-
   {
     plugins: {
       '@typescript-eslint': tseslint.plugin,
@@ -24,7 +24,6 @@ export default [
       import: pluginImport,
     },
   },
-
   {
     languageOptions: {
       globals: {
@@ -41,7 +40,6 @@ export default [
       },
     },
   },
-
   {
     ...pluginReact.configs.flat.recommended,
     settings: {
@@ -50,7 +48,6 @@ export default [
       },
     },
   },
-
   {
     rules: {
       '@typescript-eslint/no-unused-vars': [
@@ -172,12 +169,12 @@ export default [
         },
       ],
     },
-  },
-  //   🔹 Специальные настройки для Vite-конфига
+  }, //   🔹 Специальные настройки для Vite-конфига
   {
     files: ['vite.config.ts'],
     languageOptions: {
       sourceType: 'module',
     },
   },
+  ...storybook.configs['flat/recommended'],
 ]

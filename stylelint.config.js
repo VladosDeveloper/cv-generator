@@ -1,11 +1,8 @@
-// stylelint.config.js
 export default {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier-scss'],
+  extends: ['stylelint-config-standard-scss'],
   rules: {
-    'scss/at-import-no-partial-leading-underscore': null,
     'selector-class-pattern': null,
     'scss/dollar-variable-pattern': null,
-    'scss/at-mixin-pattern': ['^[a-z][a-zA-Z0-9]+$', { message: 'Expected mixin to be camelCase' }],
     'selector-pseudo-element-colon-notation': 'single',
     'scss/dollar-variable-empty-line-before': null,
     'block-no-empty': null,

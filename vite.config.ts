@@ -23,7 +23,7 @@ export default defineConfig({
             },
           ],
         },
-        icon: false, // Отключаем режим иконки (который делает все монохромным)
+        icon: false,
       },
     }),
   ],

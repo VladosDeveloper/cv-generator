@@ -1,24 +1,24 @@
 @use '@/app/styles/colors' as *;
 @use '@/app/styles/utils' as *;
 
-@mixin commonDots {
+@mixin common-dots {
   background: $color-gray-200;
   opacity: 24%;
   border-radius: 4px;
 }
 
 .goalCardProgressDots {
-  @include flex-container();
+  @include flex-container;
 }
 
 .rectangle {
-  @include commonDots;
+  @include common-dots;
   width: 32px;
   height: 8px;
 }
 
 .circle {
-  @include commonDots;
+  @include common-dots;
   width: 8px;
   height: 8px;
 }

@@ -1,7 +1,7 @@
 import { Activity } from 'react'
 import { useApplicationsContext } from '@/app/providers'
 import { ApplicationsDefaultCount } from '@/shared/constants/applicationsDefaultCount.ts'
-import { ApplicationsLayout } from '@/shared/ui/ApplicationsLayout'
+import { ApplicationsLayout } from '@/widgets/ApplicationsLayout'
 import { HitGoal } from '@/widgets/HitGoal'
 import { PageTitle } from '@/widgets/PageTitle'
 

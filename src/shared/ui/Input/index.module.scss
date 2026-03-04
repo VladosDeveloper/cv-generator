@@ -2,20 +2,26 @@
 @use '@/app/styles/fonts' as *;
 @use '@/app/styles/utils' as *;
 
-@mixin commonFocus {
+@mixin common-focus {
   border: 1px solid $color-green-75;
   box-shadow:
     0 0 0 4px #d3f8df,
-    0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    0 1px 2px 0 rgb(16, 24, 40, 0.05);
   outline: none;
+
+  &.error {
+    box-shadow:
+      0 0 0 4px $color-red-25,
+      0 1px 2px 0 rgb(16, 24, 40, 0.05);
+  }
 }
 
-@mixin commonPlaceholder {
+@mixin common-placeholder {
   @include regular-14;
   color: $color-gray-125;
 }
 
-@mixin commonFont {
+@mixin common-font {
   @include regular-14;
   line-height: 150%;
   color: $color-gray-200;
@@ -24,6 +30,7 @@
 .field {
   & label {
     display: inline-block;
+
     @include medium-14;
     color: $color-gray-175;
     margin-bottom: 6px;
@@ -34,8 +41,8 @@
   position: relative;
   z-index: 1;
 
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     left: 15px;
@@ -46,12 +53,12 @@
     z-index: 2;
   }
 
-  &::before {
+  &:before {
     top: 29px;
     border-bottom: 1px solid transparent;
   }
 
-  &::after {
+  &:after {
     bottom: 8px;
     border-top: 1px solid transparent;
   }
@@ -63,21 +70,21 @@
   padding: 8px 12px;
   width: 264px;
   height: 40px;
-  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  box-shadow: 0 1px 2px 0 rgb(16, 24, 40, 0.05);
   background: $color-white;
 
-  @include commonFont;
+  @include common-font;
 
   vertical-align: middle;
   align-content: center;
   line-height: 1;
 
   &:focus {
-    @include commonFocus;
+    @include common-focus;
   }
 
   &::placeholder {
-    @include commonPlaceholder;
+    @include common-placeholder;
   }
 }
 
@@ -90,19 +97,20 @@
   background: $color-white;
   resize: none;
 
-  @include commonFont;
+  @include common-font;
 
   &:focus {
-    @include commonFocus;
+    @include common-focus;
+
     &.error {
       box-shadow:
         0 0 0 4px $color-red-25,
-        0 1px 2px 0 rgba(16, 24, 40, 0.05);
+        0 1px 2px 0 rgb(16, 24, 40, 0.05);
     }
   }
 
   &::placeholder {
-    @include commonPlaceholder;
+    @include common-placeholder;
   }
 }
 
