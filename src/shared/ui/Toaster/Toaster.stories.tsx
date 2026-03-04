@@ -79,7 +79,6 @@ const TriggerButton = ({ children, onClick }: { children: ReactNode; onClick?: (
 
 // Wrapper component to control toaster visibility for stories
 const ToasterWrapper = ({
-  children,
   autoShow = true,
   message = 'Operation completed successfully!',
 }: {
