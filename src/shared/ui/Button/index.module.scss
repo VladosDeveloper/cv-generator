@@ -96,6 +96,11 @@
   background: $color-white;
   line-height: 0;
   color: $color-gray-175;
+
+  &.sm,
+  &.md {
+    gap: 0;
+  }
 }
 
 .sm {

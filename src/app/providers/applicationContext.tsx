@@ -16,7 +16,7 @@ type ContextType = {
 
 const Context = createContext<ContextType | undefined>(undefined)
 
-export const ContextProvider = ({ children }: PropsWithChildren) => {
+export const ApplicationsProvider = ({ children }: PropsWithChildren) => {
   const [applications, setApplications] = useState<FormFields[]>()
 
   return <Context.Provider value={{ applications, setApplications }}>{children}</Context.Provider>
