@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate } from 'react-router'
 import { Layout } from '@/app/Layout'
-import { CreateApplicationPage } from '@/pages/CreateApplicationPage'
-import { HomePage } from '@/pages/HomePage'
-import { RoutePaths } from '@/shared/constants/routes.ts'
+import { CreateApplicationPage } from '@/pages/create-application-page'
+import { HomePage } from '@/pages/home-page'
+import { RoutePaths } from '@/shared/constants/routes'
 
 export const router = createBrowserRouter([
   {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { OpenAI } from 'openai/client'
-import type { FormFields } from '@/shared/types/zFormFields.ts'
+import type { FormFields } from '@/shared/types/zFormFields'
 
 export const useAiGenerateText = () => {
   const [generatedText, setGeneratedText] = useState('')

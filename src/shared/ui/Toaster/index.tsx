@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import cn from 'classnames'
-import { useToasterContext } from '@/app/providers/toasterProvider.tsx'
+import { useToasterContext } from '@/app/providers/toasterProvider'
 import styles from './index.module.scss'
 
 export type ToasterProps = {

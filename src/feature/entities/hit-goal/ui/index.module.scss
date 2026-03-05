@@ -1,0 +1,41 @@
+@use '@/app/styles/colors' as *;
+@use '@/app/styles/utils' as *;
+@use '@/app/styles/fonts' as *;
+@use '@/app/styles/typography' as *;
+
+.goalCard {
+  width: 100%;
+  background: $color-green-25;
+  border-radius: 12px;
+  padding: 54px 64px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.goalCardContent {
+  @include flex-container($direction: column, $gap: 32px);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.goalCardTrigger {
+  @include flex-container($direction: column, $gap: 16px);
+}
+
+.goalCardTitle {
+  font-family: $second-font-family;
+
+  @include h2;
+  @include fluid-text($min-size: $font-size-w, $max-size: $font-size-xl);
+  color: $color-gray-200;
+  letter-spacing: -2%;
+}
+
+.secondaryText {
+  @include regular-18;
+  color: $color-gray-125;
+}
+
+.goalCardProgress {
+  @include flex-container($direction: column, $gap: 8px);
+}

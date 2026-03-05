@@ -7,7 +7,7 @@ import {
   useContext,
   useState,
 } from 'react'
-import type { FormFields } from '@/shared/types/zFormFields.ts'
+import type { FormFields } from '@/shared/types/zFormFields'
 
 type ContextType = {
   applications: FormFields[] | undefined

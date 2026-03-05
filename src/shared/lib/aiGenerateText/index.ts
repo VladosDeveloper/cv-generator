@@ -1,1 +1,1 @@
-export { useAiGenerateText } from './useAiGenerateText.ts'
+export { useAiGenerateText } from './useAiGenerateText'

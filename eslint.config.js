@@ -128,6 +128,19 @@ export default [
       'import/default': 'off',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
+      'import/extensions': [
+        'error',
+        'never',
+        {
+          ts: 'never',
+          tsx: 'never',
+          js: 'never',
+          jsx: 'never',
+          json: 'always',
+          svg: 'always',
+          scss: 'always',
+        },
+      ],
 
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
       'no-debugger': 'warn',

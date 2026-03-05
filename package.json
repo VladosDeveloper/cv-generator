@@ -8,11 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint-fix": "eslint --fix",
-    "stylelint": "stylelint --cache --cache-location \"./node_modules/.cache/.stylelintcache\" \"src/**/*.scss\"",
+    "stylelint": "stylelint --cache --cache-location --fix \"./node_modules/.cache/.stylelintcache\" \"src/**/*.scss\"",
     "stylecheck": "sass --update -q ./src:./node_modules/.cache/.stylecheckcache",
     "preview": "vite preview",
     "types": "tsc --noEmit --project ./tsconfig.node.json && tsc --noEmit --project ./tsconfig.json",
-    "prettify": "prettier --log-level warn --cache --write \"{src/**/*,*}.{ts,tsx,js,json,yml,scss}\" \"!**/{node_modules,dist}/**/*\" ",
+    "prettify": "npx prettier --log-level warn --cache --write \"{src/**/*,*}.{ts,tsx,js,json,yml,scss}\" \"!**/{node_modules,dist}/**/*\" ",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -29,6 +29,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "classnames": "^2.5.1",
+    "copy-to-clipboard": "^3.3.3",
     "openai": "^6.25.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

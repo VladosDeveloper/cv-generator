@@ -1,2 +1,2 @@
-export { useApplicationsContext, ApplicationsProvider } from './applicationContext.tsx'
-export { useToasterContext, ToasterProvider } from './toasterProvider.tsx'
+export { useApplicationsContext, ApplicationsProvider } from './applicationContext'
+export { useToasterContext, ToasterProvider } from './toasterProvider'
